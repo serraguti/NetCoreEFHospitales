@@ -32,9 +32,12 @@ namespace NetCoreEFHospitales
                 .AddDbContext<HospitalContext>
                 (options => options.UseSqlServer(cnn))
                 .AddSingleton<Form1>()
+                .AddTransient<RepositoryDoctores>()
+                .AddSingleton<FormDoctores>()
+                .AddSingleton<FormDoctoresEspecialidad>()
                 .BuildServiceProvider();
 
-            var form = provider.GetService<Form1>();
+            var form = provider.GetService<FormDoctoresEspecialidad>();
             Application.Run(form);
         }
     }
