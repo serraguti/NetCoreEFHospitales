@@ -58,5 +58,59 @@ namespace NetCoreEFHospitales
                 this.txtCamas.Text = hospital.NumeroCamas.ToString();
             }
         }
+
+        //METODO PARA BORRAR LAS CAJAS DE TEXTO AL REALIZAR
+        //CONSULTAS DE ACCION
+        private void DeleteData()
+        {
+            this.txtIdHospital.Text = "";
+            this.txtNombre.Text = "";
+            this.txtDireccion.Text = "";
+            this.txtTelefono.Text = "";
+            this.txtCamas.Text = "";
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            int idHospital = int.Parse(this.txtIdHospital.Text);
+            string nombre = this.txtNombre.Text;
+            string direccion = this.txtDireccion.Text;
+            string telefono = this.txtTelefono.Text;
+            int camas = int.Parse(this.txtCamas.Text);
+            this.repo.InsertHospital(idHospital, nombre
+                , direccion, telefono, camas);
+            //BORRAMOS LAS CAJAS
+            this.DeleteData(); 
+            //CARGAMOS LOS HOSPITALES DE NUEVO
+            this.LoadHospitales();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            //RECUPERAMOS LOS DATOS DE LAS CAJAS
+            int idHospital = int.Parse(this.txtIdHospital.Text);
+            string nombre = this.txtNombre.Text;
+            string direccion = this.txtDireccion.Text;
+            string telefono = this.txtTelefono.Text;
+            int camas = int.Parse(this.txtCamas.Text);
+            //LLAMAMOS A LA BASE DE DATOS PARA LA ACCION
+            this.repo.UpdateHospital(idHospital, nombre
+                , direccion, telefono, camas);
+            //BORRAMOS LAS CAJAS
+            this.DeleteData();
+            //RECARGAMOS LOS HOSPITALES DE LA BASE DE DATOS
+            this.LoadHospitales();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int idHospital = int.Parse(this.txtIdHospital.Text);
+            //LLAMAMOS A LA BASE DE DATOS PARA LA ACCION
+            this.repo.DeleteHospital(idHospital);
+            //BORRAMOS LAS CAJAS DE TEXTO
+            this.DeleteData();
+            //RECARGAMOS LOS HOSPITALES DE LA BASE DE DATOS
+            this.LoadHospitales();
+        }
     }
 }

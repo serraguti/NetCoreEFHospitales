@@ -31,6 +31,11 @@ namespace NetCoreEFHospitales
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lsvHospital = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdHospital = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,11 +49,6 @@ namespace NetCoreEFHospitales
             this.btnInsertar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // label1
@@ -77,6 +77,31 @@ namespace NetCoreEFHospitales
             this.lsvHospital.UseCompatibleStateImageBehavior = false;
             this.lsvHospital.View = System.Windows.Forms.View.Details;
             this.lsvHospital.SelectedIndexChanged += new System.EventHandler(this.lsvHospital_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "IdHospital";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nombre";
+            this.columnHeader2.Width = 150;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Dirección";
+            this.columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Teléfono";
+            this.columnHeader4.Width = 120;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Camas";
+            this.columnHeader5.Width = 75;
             // 
             // label2
             // 
@@ -167,6 +192,7 @@ namespace NetCoreEFHospitales
             this.btnInsertar.TabIndex = 12;
             this.btnInsertar.Text = "Insertar";
             this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // btnModificar
             // 
@@ -177,6 +203,7 @@ namespace NetCoreEFHospitales
             this.btnModificar.TabIndex = 13;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -187,31 +214,7 @@ namespace NetCoreEFHospitales
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "IdHospital";
-            this.columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nombre";
-            this.columnHeader2.Width = 150;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Dirección";
-            this.columnHeader3.Width = 200;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Teléfono";
-            this.columnHeader4.Width = 120;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Camas";
-            this.columnHeader5.Width = 75;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FormCrudHospitales
             // 
