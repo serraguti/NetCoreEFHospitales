@@ -75,5 +75,34 @@ namespace NetCoreEFHospitales.Repositories
                 return consulta.ToList();
             }
         }
+
+        //METODO PARA RECUPERAR DOCTORES POR HOSPITAL
+        public List<Doctor> GetDoctoresHospital(int idhospital)
+        {
+            var consulta = from datos in this.context.Doctores
+                           where datos.IdHospital == idhospital
+                           select datos;
+            if (consulta.Count() == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return consulta.ToList();
+            }
+        }
+
+        //METODO PARA ELIMINAR UN DOCTOR POR SU ID
+        public void DeleteDoctor(int idDoctor)
+        {
+            //BUSCAMOS EL DOCTOR A ELIMINAR
+            Doctor doctor = this.FindDoctor(idDoctor);
+            //ELIMINAMOS AL DOCTOR DE LA COLECCION DENTRO DEL 
+            //DbContext
+            this.context.Doctores.Remove(doctor);
+            //PARA REALIZAR LOS CAMBIOS EN LA BASE DE DATOS
+            //SERA NECESARIO EL METODO SaveChanges()
+            this.context.SaveChanges();
+        }
     }
 }
