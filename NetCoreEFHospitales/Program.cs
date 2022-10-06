@@ -37,9 +37,10 @@ namespace NetCoreEFHospitales
                 .AddSingleton<FormDoctoresEspecialidad>()
                 .AddSingleton<FormHospitalesDoctores>()
                 .AddSingleton<FormEliminarDoctor>()
+                .AddSingleton<FormCrudHospitales>()
                 .BuildServiceProvider();
 
-            var form = provider.GetService<FormEliminarDoctor>();
+            var form = provider.GetService<FormCrudHospitales>();
             Application.Run(form);
         }
     }
